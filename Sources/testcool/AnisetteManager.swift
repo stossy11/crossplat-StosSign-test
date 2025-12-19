@@ -651,23 +651,19 @@ enum AnisetteError: LocalizedError {
     }
 }
 
+
 extension AnisetteManager: URLSessionDelegate {
+#if !canImport(Darwin)
     func urlSession(_ session: URLSession,
                    didReceive challenge: URLAuthenticationChallenge,
                    completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
         
-        guard challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodServerTrust,
-              let serverTrust = challenge.protectionSpace.serverTrust else {
-            completionHandler(.performDefaultHandling, nil)
-            return
-        }
-        
-        let appleHosts = ["gsa.apple.com", "apple.com"]
-        if appleHosts.contains(challenge.protectionSpace.host) {
-            let credential = URLCredential(trust: serverTrust)
-            completionHandler(.useCredential, credential)
+        if challenge.protectionSpace.host.contains("apple.com") {
+            completionHandler(.useCredential, URLCredential(trust: challenge.protectionSpace.serverTrust!))
         } else {
             completionHandler(.performDefaultHandling, nil)
         }
+
     }
+#endif
 }
