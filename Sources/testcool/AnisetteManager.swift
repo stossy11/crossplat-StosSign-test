@@ -44,7 +44,7 @@ class Logger2 {
     }
 }
 
-class LogCapture: ObservableObject {
+class LogCapture {
     static let shared = LogCapture()
 
     var messages: [String] = []
@@ -399,9 +399,9 @@ final class AnisetteManager {
         if  localIdentifier == nil {
             logger.info("Generating identifier")
             var bytes = [UInt8](repeating: 0, count: 16)
-            let status = SecRandomCopyBytes(kSecRandomDefault, bytes.count, &bytes)
+            let status = arc4random_uniform2(UInt32(bytes.count))
             
-            if status != errSecSuccess {
+            if status != 0 {
                 logger.error("ERROR GENERATING IDENTIFIER!!! \(status)")
                 throw AnisetteError.identifierGenerationFailed
             }
@@ -429,6 +429,20 @@ final class AnisetteManager {
         let uuid = UUID(uuid: identifierData.withUnsafeBytes { $0.load(as: uuid_t.self) })
         deviceId = uuid.uuidString.uppercased()
         logger.debug("X-Mme-Device-Id: \(self.deviceId!)")
+    }
+    
+    func arc4random_uniform2(_ upperBound: UInt32) -> UInt32 {
+        precondition(upperBound > 0, "upperBound must be greater than 0")
+        
+        var rng = SystemRandomNumberGenerator()
+        let upperBoundInt = Int(upperBound)
+        
+        var randomValue: Int = Int(rng.next())
+        repeat {
+            randomValue = Int(rng.next())
+        } while randomValue >= upperBoundInt * (Int.max / upperBoundInt)
+
+        return UInt32(randomValue % upperBoundInt)
     }
     
     private func fetchAnisetteV3(_ identifier: String, _ adiPb: String) async throws -> AnisetteData {

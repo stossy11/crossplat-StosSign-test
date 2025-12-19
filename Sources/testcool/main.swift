@@ -4,6 +4,7 @@
 // Swift Argument Parser
 // https://swiftpackageindex.com/apple/swift-argument-parser/documentation
 
+import Foundation
 import StosSign_Auth
 #if canImport(MacAnisette)
 import MacAnisette
@@ -21,7 +22,7 @@ func run2() async throws {
     anisetteData = try! JSONDecoder().decode(AnisetteData.self, from: jsonData)
     #else
     
-    anisetteData = AnisetteManager.shared.getAnisetteData()
+    anisetteData = try await AnisetteManager.shared.getAnisetteData()
     
     #endif
     
