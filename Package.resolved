@@ -1,0 +1,94 @@
+{
+  "pins" : [
+    {
+      "identity" : "big-num",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/adam-fowler/big-num",
+      "state" : {
+        "revision" : "5c5511ad06aeb2b97d0868f7394e14a624bfb1c7",
+        "version" : "2.0.2"
+      }
+    },
+    {
+      "identity" : "macanisette",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SideStore/MacAnisette.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "010aae2b30adb5c9bc513693efc2f0aa5943a703"
+      }
+    },
+    {
+      "identity" : "openssl",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/krzyzanowskim/OpenSSL",
+      "state" : {
+        "revision" : "e7d34385da795aaaeb2212e38c7401e5c333f792",
+        "version" : "3.6.1"
+      }
+    },
+    {
+      "identity" : "stossign",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/stossy11/StosSign.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "d0fc4da779b0981fce90dfdb0fe5d964fdd819a7"
+      }
+    },
+    {
+      "identity" : "swift-asn1",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-asn1.git",
+      "state" : {
+        "revision" : "a53d9f676cbc84ccc1643cf559a470ee5732ebb6",
+        "version" : "0.8.0"
+      }
+    },
+    {
+      "identity" : "swift-certificates",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-certificates.git",
+      "state" : {
+        "revision" : "9099e78aad1693ce5a2e5b108d8e1337fbff433b",
+        "version" : "0.6.0"
+      }
+    },
+    {
+      "identity" : "swift-crypto",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-crypto",
+      "state" : {
+        "revision" : "60f13f60c4d093691934dc6cfdf5f508ada1f894",
+        "version" : "2.6.0"
+      }
+    },
+    {
+      "identity" : "swift-srp",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/adam-fowler/swift-srp.git",
+      "state" : {
+        "revision" : "ce202c48f8ca68f44b71732f945eb8221d6fe135"
+      }
+    },
+    {
+      "identity" : "zip",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/marmelroy/Zip.git",
+      "state" : {
+        "branch" : "master",
+        "revision" : "bca30f6d6c7d37cbc4aa8f6b0002e281dcc36195"
+      }
+    },
+    {
+      "identity" : "zsign-package",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/khcrysalis/Zsign-Package",
+      "state" : {
+        "branch" : "package",
+        "revision" : "6ffe703df73ef9069adacdbb19d571f11a69a801"
+      }
+    }
+  ],
+  "version" : 2
+}
