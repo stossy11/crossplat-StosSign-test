@@ -61,7 +61,7 @@ extension Notification.Name {
 
 
 
-final class AnisetteManager {
+final class AnisetteManager: NSObject {
     // MARK: - Properties
     private var webSocketTask: URLSessionWebSocketTask?
     private var session = URLSession(configuration: .default)
@@ -108,8 +108,9 @@ final class AnisetteManager {
         return try await provision()
     }
     
-    init() {
-        
+    override init() {
+        super.init()
+        self.session = URLSession(configuration: .default, delegate: self, delegateQueue: nil)
     }
     
     private func provision() async throws -> AnisetteData {
@@ -646,6 +647,27 @@ enum AnisetteError: LocalizedError {
             return "Server error: \(message)"
         case .noAccountSelected:
             return "No account selected. Please select an account before getting anisette data."
+        }
+    }
+}
+
+extension AnisetteManager: URLSessionDelegate {
+    func urlSession(_ session: URLSession,
+                   didReceive challenge: URLAuthenticationChallenge,
+                   completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
+        
+        guard challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodServerTrust,
+              let serverTrust = challenge.protectionSpace.serverTrust else {
+            completionHandler(.performDefaultHandling, nil)
+            return
+        }
+        
+        let appleHosts = ["gsa.apple.com", "apple.com"]
+        if appleHosts.contains(challenge.protectionSpace.host) {
+            let credential = URLCredential(trust: serverTrust)
+            completionHandler(.useCredential, credential)
+        } else {
+            completionHandler(.performDefaultHandling, nil)
         }
     }
 }
