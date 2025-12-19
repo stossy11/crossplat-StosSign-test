@@ -10,6 +10,15 @@
       }
     },
     {
+      "identity" : "darwinprivateframeworks",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/OpenSwiftUIProject/DarwinPrivateFrameworks.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "392e3b27e14a11bc4713f7a746d59ceb0076c85f"
+      }
+    },
+    {
       "identity" : "macanisette",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/SideStore/MacAnisette.git",
@@ -19,12 +28,57 @@
       }
     },
     {
+      "identity" : "openattributegraph",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/OpenSwiftUIProject/OpenAttributeGraph",
+      "state" : {
+        "branch" : "main",
+        "revision" : "b8ee96828f38cd221c67c252a6488d99fef04468"
+      }
+    },
+    {
+      "identity" : "opencoregraphics",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/OpenSwiftUIProject/OpenCoreGraphics",
+      "state" : {
+        "branch" : "main",
+        "revision" : "cd89c292c4ed4c25d9468a12d9490cc18304ff37"
+      }
+    },
+    {
+      "identity" : "openobservation",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/OpenSwiftUIProject/OpenObservation",
+      "state" : {
+        "branch" : "main",
+        "revision" : "814dbe008056db6007bfc3d27fe585837f30e9ed"
+      }
+    },
+    {
+      "identity" : "openrenderbox",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/OpenSwiftUIProject/OpenRenderBox",
+      "state" : {
+        "branch" : "main",
+        "revision" : "ebed504f2785edfe500ebd0552a1bcf6d37071ba"
+      }
+    },
+    {
       "identity" : "openssl",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/krzyzanowskim/OpenSSL",
       "state" : {
         "revision" : "e7d34385da795aaaeb2212e38c7401e5c333f792",
         "version" : "3.6.1"
+      }
+    },
+    {
+      "identity" : "openswiftui",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/OpenSwiftUIProject/OpenSwiftUI",
+      "state" : {
+        "branch" : "main",
+        "revision" : "7b4928da4710cd931ccbcef1851240d1f4e6d0b3"
       }
     },
     {
@@ -69,6 +123,24 @@
       "location" : "https://github.com/adam-fowler/swift-srp.git",
       "state" : {
         "revision" : "ce202c48f8ca68f44b71732f945eb8221d6fe135"
+      }
+    },
+    {
+      "identity" : "swift-syntax",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/swiftlang/swift-syntax",
+      "state" : {
+        "revision" : "f99ae8aa18f0cf0d53481901f88a0991dc3bd4a2",
+        "version" : "601.0.1"
+      }
+    },
+    {
+      "identity" : "symbollocator",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/OpenSwiftUIProject/SymbolLocator.git",
+      "state" : {
+        "revision" : "546053c03f282df1a8270853da6692e1b078be09",
+        "version" : "0.2.1"
       }
     },
     {

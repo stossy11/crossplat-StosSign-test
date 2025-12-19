@@ -108,10 +108,7 @@ final class AnisetteManager: NSObject {
         return try await provision()
     }
     
-    override init() {
-        super.init()
-        self.session = URLSession(configuration: .default, delegate: self, delegateQueue: nil)
-    }
+    override init() { }
     
     private func provision() async throws -> AnisetteData {
         try await fetchClientInfo()
@@ -651,19 +648,3 @@ enum AnisetteError: LocalizedError {
     }
 }
 
-
-extension AnisetteManager: URLSessionDelegate {
-#if !canImport(Darwin)
-    func urlSession(_ session: URLSession,
-                   didReceive challenge: URLAuthenticationChallenge,
-                   completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
-        
-        if challenge.protectionSpace.host.contains("apple.com") {
-            completionHandler(.useCredential, nil)
-        } else {
-            completionHandler(.performDefaultHandling, nil)
-        }
-
-    }
-#endif
-}
