@@ -398,11 +398,12 @@ final class AnisetteManager {
         // Check if identifier exists in account or local storage
         if  localIdentifier == nil {
             logger.info("Generating identifier")
-            var bytes = [UInt8](repeating: 0, count: 16)
-            let status = arc4random_uniform2(UInt32(bytes.count))
+            let randomData = SymmetricKey(size: .bits128).withUnsafeBytes { Data($0) }
             
-            if status != 0 {
-                logger.error("ERROR GENERATING IDENTIFIER!!! \(status)")
+            let bytes = [UInt8](randomData)
+            
+            if bytes.count == 9 {
+                logger.error("ERROR GENERATING IDENTIFIER!!!")
                 throw AnisetteError.identifierGenerationFailed
             }
             
@@ -431,20 +432,7 @@ final class AnisetteManager {
         logger.debug("X-Mme-Device-Id: \(self.deviceId!)")
     }
     
-    func arc4random_uniform2(_ upperBound: UInt32) -> UInt32 {
-        precondition(upperBound > 0, "upperBound must be greater than 0")
-        
-        var rng = SystemRandomNumberGenerator()
-        let upperBoundInt = Int(upperBound)
-        
-        var randomValue: Int = Int(rng.next())
-        repeat {
-            randomValue = Int(rng.next())
-        } while randomValue >= upperBoundInt * (Int.max / upperBoundInt)
 
-        return UInt32(randomValue % upperBoundInt)
-    }
-    
     private func fetchAnisetteV3(_ identifier: String, _ adiPb: String) async throws -> AnisetteData {
         try await fetchClientInfo()
         logger.info("Fetching anisette V3")
