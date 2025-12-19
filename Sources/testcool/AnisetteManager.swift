@@ -8,16 +8,12 @@
 import Foundation
 import StosSign_Auth
 import Crypto
-import OSLog
 import Combine
 #if canImport(FoundationNetworking)
 import FoundationNetworking
 #endif
 
-extension Logger {
-    static var main = Logger(subsystem: Bundle.main.bundleIdentifier!, category: "main")
-    static var loggers: [String: Logger] = [:]
-    
+class Logger {
     static func get(_ category: String) -> Logger2 {
         return Logger2()
     }
