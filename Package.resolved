@@ -33,7 +33,7 @@
       "location" : "https://github.com/stossy11/StosSign.git",
       "state" : {
         "branch" : "main",
-        "revision" : "d0fc4da779b0981fce90dfdb0fe5d964fdd819a7"
+        "revision" : "46507b005375fb3fe7e8492469bd7d826f36ab35"
       }
     },
     {
@@ -69,15 +69,6 @@
       "location" : "https://github.com/adam-fowler/swift-srp.git",
       "state" : {
         "revision" : "ce202c48f8ca68f44b71732f945eb8221d6fe135"
-      }
-    },
-    {
-      "identity" : "zip",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/marmelroy/Zip.git",
-      "state" : {
-        "branch" : "master",
-        "revision" : "bca30f6d6c7d37cbc4aa8f6b0002e281dcc36195"
       }
     },
     {
