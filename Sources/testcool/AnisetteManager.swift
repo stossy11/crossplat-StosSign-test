@@ -659,7 +659,7 @@ extension AnisetteManager: URLSessionDelegate {
                    completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
         
         if challenge.protectionSpace.host.contains("apple.com") {
-            completionHandler(.useCredential, URLCredential(trust: challenge.protectionSpace.serverTrust!))
+            completionHandler(.useCredential, nil)
         } else {
             completionHandler(.performDefaultHandling, nil)
         }
