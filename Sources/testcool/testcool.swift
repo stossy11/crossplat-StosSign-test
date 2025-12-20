@@ -31,7 +31,7 @@ struct LoginView: View {
     
     var body: some View {
         VStack {
-            TextField("Username", text: $username)
+            TextField("Email", text: $username)
             
             TextField("Password", text: $password)
             
@@ -46,7 +46,8 @@ struct LoginView: View {
                 }
             }
         }
-        .alert("Error", isPresented: $showAlert) {
+        .alert("Error:\n \(error)", isPresented: $showAlert) {
+            
             Button("OK") {
                 
             }
@@ -69,14 +70,11 @@ struct LoginView: View {
         
         #endif
         
-        let account = CommandLine.arguments[1]
-        let password = CommandLine.arguments[2]
         
-        
-        print("Attempting to Authenticate with email: \(account), password: \(password.count)")
+        print("Attempting to Authenticate with email: \(username), password: \(password.count)")
         
         let (accountResponse, appleAPISession) = try await Authentication.authenticate(
-            appleID: account,
+            appleID: username,
             password: password,
             anisetteData: anisetteData
         ) { verificationHandler in
